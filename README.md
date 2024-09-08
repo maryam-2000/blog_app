@@ -66,8 +66,7 @@ A simple blog application built using Ruby on Rails. This app allows users to cr
 
 ### Docker Setup (Optional)
 
-    If using Docker, build and run the Docker containers:
-
+If using Docker, build and run the Docker containers:
     ```bash
     docker-compose up --build
 
