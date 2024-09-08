@@ -64,5 +64,5 @@ end
 
 group :development, :test do
   # For tests, use RSpec, a popular testing tool for Rails applications.
-  gem 'rspec-rails', '~> 5.0.0'
+  gem 'rspec-rails', '~> 7.0.1'
 end
