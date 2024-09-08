@@ -67,9 +67,124 @@ A simple blog application built using Ruby on Rails. This app allows users to cr
 ### Docker Setup (Optional)
 
 If using Docker, build and run the Docker containers:
+
     ```bash
     docker-compose up --build
 
-### API Endpoints
+## API Endpoints
+
+### User Authentication
+
+- **Signup**: `POST /signup`
+  - **Request Body**:
+    ```json
+    {
+      "user": {
+        "name": "John Doe",
+        "email": "john@example.com",
+        "password": "password",
+        "image": "image_url"
+      }
+    }
+    ```
+  - **Response**:
+    ```json
+    {
+      "token": "jwt_token",
+      "user": { ... }
+    }
+    ```
+
+- **Login**: `POST /login`
+  - **Request Body**:
+    ```json
+    {
+      "email": "john@example.com",
+      "password": "password"
+    }
+    ```
+  - **Response**:
+    ```json
+    {
+      "token": "jwt_token",
+      "user": { ... }
+    }
+    ```
+
+### Blog Posts
+
+- **Index**: `GET /posts`
+  - **Response**:
+    ```json
+    [
+      {
+        "id": 1,
+        "title": "Post Title",
+        "body": "Post Body",
+        "tags": "tag1, tag2",
+        "created_at": "timestamp"
+      },
+      ...
+    ]
+    ```
+
+- **Show**: `GET /posts/:id`
+  - **Response**:
+    ```json
+    {
+      "id": 1,
+      "title": "Post Title",
+      "body": "Post Body",
+      "tags": "tag1, tag2",
+      "created_at": "timestamp"
+    }
+    ```
+
+- **Create**: `POST /posts`
+  - **Request Body**:
+    ```json
+    {
+      "post": {
+        "title": "New Post",
+        "body": "Post Body",
+        "tags": "tag1, tag2"
+      }
+    }
+    ```
+  - **Response**:
+    ```json
+    {
+      "id": 1,
+      "title": "New Post",
+      "body": "Post Body",
+      "tags": "tag1, tag2",
+      "created_at": "timestamp"
+    }
+    ```
+
+- **Update**: `PUT /posts/:id`
+  - **Request Body**:
+    ```json
+    {
+      "post": {
+        "title": "Updated Title",
+        "body": "Updated Body",
+        "tags": "new_tag1, new_tag2"
+      }
+    }
+    ```
+  - **Response**:
+    ```json
+    {
+      "id": 1,
+      "title": "Updated Title",
+      "body": "Updated Body",
+      "tags": "new_tag1, new_tag2",
+      "created_at": "timestamp"
+    }
+    ```
+
+- **Destroy**: `DELETE /posts/:id`
+  - **Response**: `204 No Content`
 
 
