@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  has_many :comments, dependent: :destroy
   belongs_to :user
   validates :title, :body, :tags, presence: true
   validate :has_at_least_one_tag
